@@ -13,10 +13,11 @@
       sizes="32x32"
       href="./assets/images/favicon-32x32.png"
     />
+    <link rel="stylesheet" href="styles.css" />
 
-    <title>Frontend Mentor | Password generator app</title>
+    <title>Frontend Mentor | Password Generator App</title>
   </head>
-  <body>
+  <body class="wrapper">
     <main>
       <form>
         <h1>Password Generator</h1>
@@ -52,98 +53,100 @@
             </button>
           </div>
         </fieldset>
-        <div class="length-group">
-          <div class="length-wrapper">
-            <label for="length">Character Length</label>
-            <span
-              class="count"
-              aria-live="polite"
-              data-js="char-count"
-            >
-              0
-            </span>
+        <div class="card">
+          <div class="length-group">
+            <div class="length-wrapper">
+              <label for="length">Character Length</label>
+              <span
+                class="count"
+                aria-live="polite"
+                data-js="char-count"
+              >
+                0
+              </span>
+            </div>
+            <input
+              id="length"
+              name="length"
+              type="range"
+              min="0"
+              max="20"
+              value="0"
+              step="1"
+            />
           </div>
-          <input
-            id="length"
-            name="length"
-            type="range"
-            min="0"
-            max="20"
-            value="0"
-            step="1"
-          />
-        </div>
-        <fieldset>
-          <legend class="visually-hidden">
-            Select character types
-          </legend>
-          <label for="uppercase">
-            <input
-              class="custom-checkbox"
-              id="uppercase"
-              name="uppercase"
-              type="checkbox"
-            />
-            <span>Include Uppercase Letters</span>
-          </label>
-          <label for="lowercase">
-            <input
-              class="custom-checkbox"
-              id="lowercase"
-              name="lowercase"
-              type="checkbox"
-            />
-            <span>Include Lowercase Letters</span>
-          </label>
-          <label for="numbers">
-            <input
-              class="custom-checkbox"
-              id="numbers"
-              name="numbers"
-              type="checkbox"
-            />
-            <span>Include Numbers</span>
-          </label>
-          <label for="symbols">
-            <input
-              class="custom-checkbox"
-              id="symbols"
-              name="symbols"
-              type="checkbox"
-            />
-            <span>Include Symbols</span>
-          </label>
-        </fieldset>
-        <div class="strength-group">
-          <p>Strength</p>
-          <div class="strength-meter">
-            <p class="hidden" id="strength" aria-live="polite">
-              Medium
-            </p>
-            <div class="bar-wrapper">
-              <div class="bar" data-strength="too-weak"></div>
-              <div class="bar" data-strength="weak"></div>
-              <div class="bar" data-strength="medium"></div>
-              <div class="bar" data-strength="strong"></div>
+          <fieldset class="checkboxes">
+            <legend class="visually-hidden">
+              Select character types
+            </legend>
+            <label for="uppercase">
+              <input
+                class="custom-checkbox"
+                id="uppercase"
+                name="uppercase"
+                type="checkbox"
+              />
+              <span>Include Uppercase Letters</span>
+            </label>
+            <label for="lowercase">
+              <input
+                class="custom-checkbox"
+                id="lowercase"
+                name="lowercase"
+                type="checkbox"
+              />
+              <span>Include Lowercase Letters</span>
+            </label>
+            <label for="numbers">
+              <input
+                class="custom-checkbox"
+                id="numbers"
+                name="numbers"
+                type="checkbox"
+              />
+              <span>Include Numbers</span>
+            </label>
+            <label for="symbols">
+              <input
+                class="custom-checkbox"
+                id="symbols"
+                name="symbols"
+                type="checkbox"
+              />
+              <span>Include Symbols</span>
+            </label>
+          </fieldset>
+          <div class="strength-group">
+            <p>Strength</p>
+            <div class="strength-meter">
+              <p class="hidden" id="strength" aria-live="polite">
+                Medium
+              </p>
+              <div class="bar-wrapper">
+                <div class="bar" data-strength="too-weak"></div>
+                <div class="bar" data-strength="weak"></div>
+                <div class="bar" data-strength="medium"></div>
+                <div class="bar" data-strength="strong"></div>
+              </div>
             </div>
           </div>
+          <button class="btn--submit" type="button">
+            <span>Generate</span>
+            <svg
+              aria-hidden="true"
+              width="12"
+              height="12"
+              viewBox="0 0 12 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M5.10553 12L11.1055 6.00002L5.10553 0L3.84051 1.26501L7.681 5.10547L6.10352e-05 5.10547V6.8946L7.681 6.8946L3.84051 10.735L5.10553 12Z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
         </div>
-        <button type="button">
-          <span>Generate</span>
-          <svg
-            aria-hidden="true"
-            width="12"
-            height="12"
-            viewBox="0 0 12 12"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M5.10553 12L11.1055 6.00002L5.10553 0L3.84051 1.26501L7.681 5.10547L6.10352e-05 5.10547V6.8946L7.681 6.8946L3.84051 10.735L5.10553 12Z"
-              fill="currentColor"
-            />
-          </svg>
-        </button>
       </form>
     </main>
     <footer class="main-footer">

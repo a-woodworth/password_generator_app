@@ -1,0 +1,7 @@
+// Container/Wrapper Styles
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 3rem;
+  margin: auto;
+}
