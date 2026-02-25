@@ -21,20 +21,26 @@
     <main>
       <form>
         <h1>Password Generator</h1>
-        <fieldset>
+        <fieldset class="password-wrapper">
           <legend class="visually-hidden">Current Password</legend>
           <div class="password-group">
-            <label for="password">Password</label>
-            <input
-              id="password"
-              name="password"
-              type="text"
-              readonly
-              value="P4$5W0rD!"
-            />
-            <button type="button" disabled>
+            <div class="field">
+              <label class="field__label" for="password">
+                Password
+              </label>
+              <input
+                class="field__input"
+                id="password"
+                name="password"
+                type="text"
+                placeholder="P4$5W0rD!"
+                readonly
+                value=""
+              />
+            </div>
+            <button class="btn--copy" type="button" disabled>
               <span class="visually-hidden">Click to copy</span>
-              <span class="hidden">Copied</span>
+              <span class="js-success hidden">Copied</span>
               <svg
                 aria-hidden="true"
                 width="18"
@@ -75,6 +81,9 @@
               step="1"
             />
           </div>
+          <p class="error hidden" aria-live="polite">
+            Check some character types
+          </p>
           <fieldset class="checkboxes">
             <legend class="visually-hidden">
               Select character types

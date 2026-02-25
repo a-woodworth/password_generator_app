@@ -1,1 +1,17 @@
 // Footer Styles
+.main-footer {
+  color: var(--grey-600);
+  font-size: 0.75rem;
+  margin-inline: var(--spacing-300);
+  text-align: center;
+
+  a {
+    color: var(--white);
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+}
