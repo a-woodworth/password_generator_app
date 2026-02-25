@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta
+      name="description"
+      content="a-woodworth's live version of Frontend Mentor's Password Generator App Challenge"
+    />
+    <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
@@ -38,8 +42,12 @@
                 value=""
               />
             </div>
-            <button class="btn--copy" type="button" disabled>
-              <span class="visually-hidden">Click to copy</span>
+            <button
+              class="btn--copy"
+              type="button"
+              aria-label="copy"
+              disabled
+            >
               <span class="js-success hidden">Copied</span>
               <svg
                 aria-hidden="true"
@@ -126,12 +134,17 @@
             </label>
           </fieldset>
           <div class="strength-group">
-            <p>Strength</p>
+            <h2 id="strength-title">Strength</h2>
             <div class="strength-meter">
-              <p class="hidden" id="strength" aria-live="polite">
-                Medium
-              </p>
               <div class="bar-wrapper">
+                <p
+                  class="js-strength-rating visually-hidden"
+                  id="strength"
+                  aria-live="polite"
+                  aria-atomic="true"
+                >
+                  Blank
+                </p>
                 <div class="bar" data-strength="too-weak"></div>
                 <div class="bar" data-strength="weak"></div>
                 <div class="bar" data-strength="medium"></div>

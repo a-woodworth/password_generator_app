@@ -65,6 +65,7 @@ select {
   --grey-800: hsl(248 10% 15%);
   --grey-700: hsl(248 5% 34%);
   --grey-600: hsl(251 9% 53%);
+  --grey-500: hsl(251 9% 67%);
   --grey-200: hsl(252 11% 91%);
   --orange-400: hsl(13 95% 66%);
   --red-500: hsl(0 91% 63%);
@@ -245,12 +246,17 @@ input[type=checkbox]:checked::before {
   margin-block-end: var(--spacing-200);
   padding-block: calc(var(--spacing-200) - 0.125rem);
   padding-inline: var(--spacing-200);
+  text-transform: uppercase;
   width: 100%;
 }
-.strength-group p {
-  color: var(--grey-600);
+.strength-group h2 {
+  color: var(--grey-500);
   font: var(--text-4);
-  text-transform: uppercase;
+}
+
+.strength-meter p {
+  color: var(--white);
+  font: var(--text-3);
 }
 
 .bar-wrapper {
@@ -260,9 +266,31 @@ input[type=checkbox]:checked::before {
 }
 
 .bar {
-  border: 0.125rem solid var(--grey-200);
+  --bar-color: var(--grey-200);
+  background-color: transparent;
+  border: 0.125rem solid var(--bar-color);
   height: 1.75rem;
   width: 0.625rem;
+}
+
+.too-weak {
+  --bar-color: var(--red-500);
+  background-color: var(--bar-color);
+}
+
+.weak {
+  --bar-color: var(--orange-500);
+  background-color: var(--bar-color);
+}
+
+.medium {
+  --bar-color: var(--yellow-500);
+  background-color: var(--bar-color);
+}
+
+.strong {
+  --bar-color: var(--green-200);
+  background-color: var(--bar-color);
 }
 
 .btn--submit {
