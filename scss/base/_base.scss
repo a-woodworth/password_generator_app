@@ -46,7 +46,7 @@
 }
 
 body {
-  background-color: var(--grey-950);
+  background: var(--gradient-1);
   color: var(--white);
   font-family: var(--font-base);
   min-height: 100vh;
@@ -57,6 +57,10 @@ h1 {
   font: var(--text-4);
   margin-block-end: var(--spacing-200);
   text-align: center;
+
+  @media (width > 33.75rem) {
+    font: var(--text-2);
+  }
 }
 
 .hidden {

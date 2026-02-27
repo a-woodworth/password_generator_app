@@ -94,7 +94,7 @@ select {
 }
 
 body {
-  background-color: var(--grey-950);
+  background: var(--gradient-1);
   color: var(--white);
   font-family: var(--font-base);
   min-height: 100vh;
@@ -105,6 +105,11 @@ h1 {
   font: var(--text-4);
   margin-block-end: var(--spacing-200);
   text-align: center;
+}
+@media (width > 33.75rem) {
+  h1 {
+    font: var(--text-2);
+  }
 }
 
 .hidden {
@@ -132,6 +137,8 @@ form {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  max-width: 33.75rem;
+  width: 100%;
 }
 
 .password-wrapper {
@@ -147,7 +154,7 @@ form {
   position: relative;
 }
 .password-group .field__label {
-  color: var(--grey-600);
+  color: transparent;
   font-size: 0.6875rem;
   position: absolute;
   top: -0.375rem;
@@ -162,6 +169,14 @@ form {
   padding-block: var(--spacing-200);
   padding-inline: var(--spacing-200);
   width: 100%;
+}
+.password-group .field__input::placeholder {
+  color: var(--grey-700);
+}
+@media (width > 33.75rem) {
+  .password-group .field__input {
+    font: var(--text-1);
+  }
 }
 
 .btn--copy {
@@ -210,17 +225,17 @@ input[type=checkbox]::before {
   transform: translate(0.0625rem, -0.0625rem);
   transition: scale 200ms ease-in-out;
 }
+@media (width > 33.75rem) {
+  input[type=checkbox]::before {
+    transform: translate(0.0625rem, -0.1875rem);
+  }
+}
 input[type=checkbox]:checked {
   background: var(--green-200);
   border: 0.125rem solid var(--green-200);
 }
 input[type=checkbox]:checked::before {
   scale: 1;
-}
-
-.card {
-  background-color: var(--grey-800);
-  padding: var(--spacing-200);
 }
 
 .checkboxes {
@@ -236,6 +251,25 @@ input[type=checkbox]:checked::before {
   gap: var(--spacing-200);
   align-items: center;
   font: var(--text-4);
+}
+@media (width > 33.75rem) {
+  .checkboxes label {
+    font: var(--text-3);
+  }
+}
+
+.card {
+  background-color: var(--grey-800);
+  max-width: 33.75rem;
+  padding-block: var(--spacing-200);
+  padding-inline: var(--spacing-200);
+  width: 100%;
+}
+@media (width > 33.75rem) {
+  .card {
+    padding-block: var(--spacing-300);
+    padding-inline: var(--spacing-400);
+  }
 }
 
 .strength-group {
@@ -318,9 +352,83 @@ input[type=checkbox]:checked::before {
   margin-block-start: var(--spacing-100);
 }
 
+.length-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-block-end: calc(var(--spacing-200) - 0.125rem);
+}
+.length-wrapper label {
+  color: var(--grey-200);
+  font: var(--text-4);
+}
+.length-wrapper span {
+  color: var(--green-200);
+  font: var(--text-2);
+}
+
+input[id=length] {
+  appearance: none;
+  background-color: var(--grey-850);
+  cursor: pointer;
+  height: 0.5rem;
+  width: 100%;
+}
+input[id=length]::-webkit-slider-runnable-track {
+  background-color: var(--grey-850);
+  height: 0.5rem;
+}
+input[id=length]::-moz-range-track {
+  background-color: var(--grey-850);
+  height: 0.5rem;
+}
+input[id=length]::-webkit-slider-thumb {
+  appearance: none;
+  background-color: var(--grey-200);
+  border: 0.125rem solid var(--grey-200);
+  border-radius: 50%;
+  height: 1.75rem;
+  margin-top: -0.625rem;
+  width: 1.75rem;
+}
+input[id=length]::-moz-range-thumb {
+  background-color: var(--grey-200);
+  border: 0.125rem solid var(--grey-200);
+  border-radius: 50%;
+  height: 1.75rem;
+  width: 1.75rem;
+}
+input[id=length]:focus {
+  outline: none;
+}
+input[id=length]:active {
+  cursor: grabbing;
+}
+input[id=length]:focus::-webkit-slider-thumb {
+  background-color: var(--grey-850);
+  border: 0.0625rem solid var(--green-200);
+  outline: 0.0625rem solid var(--green-200);
+}
+input[id=length]:hover::-webkit-slider-thumb {
+  background-color: var(--grey-850);
+  border-color: var(--green-200);
+}
+input[id=length]:focus::-moz-range-thumb {
+  background-color: var(--grey-850);
+  border: 0.0625rem solid var(--green-200);
+  outline: 0.0625rem solid var(--green-200);
+}
+input[id=length]:hover::-moz-range-thumb {
+  background-color: var(--grey-850);
+  border-color: var(--green-200);
+}
+
 main {
-  display: grid;
-  place-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin-inline: var(--spacing-200);
 }
 
