@@ -10,11 +10,19 @@
   label {
     color: var(--grey-200);
     font: var(--text-4);
+
+    @media (width > 33.75rem) {
+      font: var(--text-3);
+    }
   }
 
   span {
     color: var(--green-200);
     font: var(--text-2);
+
+    @media (width > 33.75rem) {
+      font: var(--text-1);
+    }
   }
 }
 
@@ -74,8 +82,9 @@ input[id='length'] {
 
   &:focus::-moz-range-thumb {
     background-color: var(--grey-850);
-    border: 0.0625rem solid var(--green-200);
-    outline: 0.0625rem solid var(--green-200);
+    border: 0.125rem solid var(--green-200);
+    outline: 0.125rem solid var(--white);
+    outline-offset: 0.125rem;
   }
 
   &:hover::-moz-range-thumb {

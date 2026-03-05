@@ -185,7 +185,7 @@ form {
   color: var(--green-200);
   cursor: pointer;
   display: inline-flex;
-  font: var(--text-3);
+  font: var(--text-4);
   justify-content: center;
   align-items: center;
   gap: var(--spacing-200);
@@ -195,6 +195,21 @@ form {
   right: 0.125rem;
   top: 50%;
   transform: translateY(-50%);
+}
+@media (width > 33.75rem) {
+  .btn--copy {
+    font: var(--text-3);
+  }
+}
+.btn--copy .copy-icon {
+  height: 1.25rem;
+  width: 1.125rem;
+}
+@media (width > 33.75rem) {
+  .btn--copy .copy-icon {
+    height: 1.5rem;
+    width: 1.3125rem;
+  }
 }
 .btn--copy:disabled {
   color: var(--grey-600);
@@ -275,22 +290,41 @@ input[type=checkbox]:checked::before {
 .strength-group {
   background-color: var(--grey-850);
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  gap: var(--spacing-200);
   margin-block-end: var(--spacing-200);
   padding-block: calc(var(--spacing-200) - 0.125rem);
   padding-inline: var(--spacing-200);
   text-transform: uppercase;
   width: 100%;
 }
+@media (width > 33.75rem) {
+  .strength-group {
+    padding-inline: var(--spacing-400);
+  }
+}
 .strength-group h2 {
   color: var(--grey-500);
   font: var(--text-4);
+}
+@media (width > 33.75rem) {
+  .strength-group h2 {
+    font: var(--text-3);
+  }
 }
 
 .strength-meter p {
   color: var(--white);
   font: var(--text-3);
+  margin-inline-end: var(--spacing-100);
+}
+@media (width > 33.75rem) {
+  .strength-meter p {
+    font: var(--text-2);
+  }
 }
 
 .bar-wrapper {
@@ -341,6 +375,11 @@ input[type=checkbox]:checked::before {
   text-transform: uppercase;
   width: 100%;
 }
+@media (width > 33.75rem) {
+  .btn--submit {
+    font: var(--text-3);
+  }
+}
 .btn--submit:hover {
   background-color: transparent;
   color: var(--green-200);
@@ -363,9 +402,19 @@ input[type=checkbox]:checked::before {
   color: var(--grey-200);
   font: var(--text-4);
 }
+@media (width > 33.75rem) {
+  .length-wrapper label {
+    font: var(--text-3);
+  }
+}
 .length-wrapper span {
   color: var(--green-200);
   font: var(--text-2);
+}
+@media (width > 33.75rem) {
+  .length-wrapper span {
+    font: var(--text-1);
+  }
 }
 
 input[id=length] {
@@ -416,8 +465,9 @@ input[id=length]:hover::-webkit-slider-thumb {
 }
 input[id=length]:focus::-moz-range-thumb {
   background-color: var(--grey-850);
-  border: 0.0625rem solid var(--green-200);
-  outline: 0.0625rem solid var(--green-200);
+  border: 0.125rem solid var(--green-200);
+  outline: 0.125rem solid var(--white);
+  outline-offset: 0.125rem;
 }
 input[id=length]:hover::-moz-range-thumb {
   background-color: var(--grey-850);

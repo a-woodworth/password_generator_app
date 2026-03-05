@@ -55,7 +55,7 @@ form {
   color: var(--green-200);
   cursor: pointer;
   display: inline-flex;
-  font: var(--text-3);
+  font: var(--text-4);
   justify-content: center;
   align-items: center;
   gap: var(--spacing-200);
@@ -65,6 +65,20 @@ form {
   right: 0.125rem;
   top: 50%;
   transform: translateY(-50%);
+
+  @media (width > 33.75rem) {
+    font: var(--text-3);
+  }
+
+  & .copy-icon {
+    height: 1.25rem;
+    width: 1.125rem;
+
+    @media (width > 33.75rem) {
+      height: 1.5rem;
+      width: 1.3125rem;
+    }
+  }
 
   &:disabled {
     color: var(--grey-600);
@@ -150,23 +164,39 @@ input[type='checkbox'] {
 .strength-group {
   background-color: var(--grey-850);
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  gap: var(--spacing-200);
   margin-block-end: var(--spacing-200);
   padding-block: calc(var(--spacing-200) - 0.125rem);
   padding-inline: var(--spacing-200);
   text-transform: uppercase;
   width: 100%;
 
+  @media (width > 33.75rem) {
+    padding-inline: var(--spacing-400);
+  }
+
   h2 {
     color: var(--grey-500);
     font: var(--text-4);
+
+    @media (width > 33.75rem) {
+      font: var(--text-3);
+    }
   }
 }
 
 .strength-meter p {
   color: var(--white);
   font: var(--text-3);
+  margin-inline-end: var(--spacing-100);
+
+  @media (width > 33.75rem) {
+    font: var(--text-2);
+  }
 }
 
 .bar-wrapper {
@@ -216,6 +246,10 @@ input[type='checkbox'] {
   padding-block: var(--spacing-200);
   text-transform: uppercase;
   width: 100%;
+
+  @media (width > 33.75rem) {
+    font: var(--text-3);
+  }
 
   &:hover {
     background-color: transparent;
