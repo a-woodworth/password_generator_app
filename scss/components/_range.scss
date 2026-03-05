@@ -26,20 +26,20 @@
   }
 }
 
-input[id='length'] {
+input[id='char-count'] {
   appearance: none;
-  background-color: var(--grey-850);
+  background: transparent;
   cursor: pointer;
   height: 0.5rem;
   width: 100%;
 
-  &::-webkit-slider-runnable-track {
-    background-color: var(--grey-850);
-    height: 0.5rem;
-  }
-
+  &::-webkit-slider-runnable-track,
   &::-moz-range-track {
-    background-color: var(--grey-850);
+    background: linear-gradient(
+      to right,
+      var(--green-200) var(--progress),
+      var(--grey-850) var(--progress)
+    );
     height: 0.5rem;
   }
 

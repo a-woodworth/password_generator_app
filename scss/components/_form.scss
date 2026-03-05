@@ -176,6 +176,8 @@ input[type='checkbox'] {
   width: 100%;
 
   @media (width > 33.75rem) {
+    margin-block-end: var(--spacing-400);
+    padding-block: var(--spacing-300);
     padding-inline: var(--spacing-400);
   }
 
@@ -249,6 +251,7 @@ input[type='checkbox'] {
 
   @media (width > 33.75rem) {
     font: var(--text-3);
+    padding-block: var(--spacing-300);
   }
 
   &:hover {

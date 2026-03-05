@@ -303,6 +303,8 @@ input[type=checkbox]:checked::before {
 }
 @media (width > 33.75rem) {
   .strength-group {
+    margin-block-end: var(--spacing-400);
+    padding-block: var(--spacing-300);
     padding-inline: var(--spacing-400);
   }
 }
@@ -378,6 +380,7 @@ input[type=checkbox]:checked::before {
 @media (width > 33.75rem) {
   .btn--submit {
     font: var(--text-3);
+    padding-block: var(--spacing-300);
   }
 }
 .btn--submit:hover {
@@ -417,22 +420,18 @@ input[type=checkbox]:checked::before {
   }
 }
 
-input[id=length] {
+input[id=char-count] {
   appearance: none;
-  background-color: var(--grey-850);
+  background: transparent;
   cursor: pointer;
   height: 0.5rem;
   width: 100%;
 }
-input[id=length]::-webkit-slider-runnable-track {
-  background-color: var(--grey-850);
+input[id=char-count]::-webkit-slider-runnable-track, input[id=char-count]::-moz-range-track {
+  background: linear-gradient(to right, var(--green-200) var(--progress), var(--grey-850) var(--progress));
   height: 0.5rem;
 }
-input[id=length]::-moz-range-track {
-  background-color: var(--grey-850);
-  height: 0.5rem;
-}
-input[id=length]::-webkit-slider-thumb {
+input[id=char-count]::-webkit-slider-thumb {
   appearance: none;
   background-color: var(--grey-200);
   border: 0.125rem solid var(--grey-200);
@@ -441,35 +440,35 @@ input[id=length]::-webkit-slider-thumb {
   margin-top: -0.625rem;
   width: 1.75rem;
 }
-input[id=length]::-moz-range-thumb {
+input[id=char-count]::-moz-range-thumb {
   background-color: var(--grey-200);
   border: 0.125rem solid var(--grey-200);
   border-radius: 50%;
   height: 1.75rem;
   width: 1.75rem;
 }
-input[id=length]:focus {
+input[id=char-count]:focus {
   outline: none;
 }
-input[id=length]:active {
+input[id=char-count]:active {
   cursor: grabbing;
 }
-input[id=length]:focus::-webkit-slider-thumb {
+input[id=char-count]:focus::-webkit-slider-thumb {
   background-color: var(--grey-850);
   border: 0.0625rem solid var(--green-200);
   outline: 0.0625rem solid var(--green-200);
 }
-input[id=length]:hover::-webkit-slider-thumb {
+input[id=char-count]:hover::-webkit-slider-thumb {
   background-color: var(--grey-850);
   border-color: var(--green-200);
 }
-input[id=length]:focus::-moz-range-thumb {
+input[id=char-count]:focus::-moz-range-thumb {
   background-color: var(--grey-850);
   border: 0.125rem solid var(--green-200);
   outline: 0.125rem solid var(--white);
   outline-offset: 0.125rem;
 }
-input[id=length]:hover::-moz-range-thumb {
+input[id=char-count]:hover::-moz-range-thumb {
   background-color: var(--grey-850);
   border-color: var(--green-200);
 }

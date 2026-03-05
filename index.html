@@ -23,7 +23,7 @@
   </head>
   <body class="wrapper">
     <main>
-      <form>
+      <form id="generatePW">
         <h1>Password Generator</h1>
         <fieldset class="password-wrapper">
           <legend class="visually-hidden">Current Password</legend>
@@ -69,35 +69,24 @@
         <div class="card">
           <div class="length-group">
             <div class="length-wrapper">
-              <label for="length">Character Length</label>
+              <label for="char-count">Character Length</label>
               <span class="count" data-js="char-count">0</span>
             </div>
             <input
-              id="length"
-              name="length"
+              id="char-count"
+              name="char-count"
               type="range"
               min="0"
               max="20"
               value="0"
               step="1"
             />
-            <p
-              id="count-output"
-              class="visually-hidden"
-              aria-live="polite"
-              aria-atomic="true"
-              hidden
-            >
-              8 characters
-            </p>
           </div>
-          <p class="error hidden" aria-live="polite">
-            Check some character types
-          </p>
           <fieldset class="checkboxes">
             <legend class="visually-hidden">
               Select character types
             </legend>
+            <p class="error hidden">Check some character types</p>
             <label for="uppercase">
               <input
                 class="custom-checkbox"
@@ -142,8 +131,6 @@
                 <p
                   class="js-strength-rating visually-hidden"
                   id="strength"
-                  aria-live="polite"
-                  aria-atomic="true"
                 >
                   Blank
                 </p>
@@ -153,6 +140,12 @@
                 <div class="bar" data-strength="strong"></div>
               </div>
             </div>
+            <div
+              class="visually-hidden"
+              id="live-region"
+              aria-live="polite"
+              aria-atomic="true"
+            ></div>
           </div>
           <button class="btn--submit" type="button">
             <span>Generate</span>
@@ -182,5 +175,6 @@
         <a href="https://github.com/a-woodworth">a-woodworth</a>.
       </p>
     </footer>
+    <script src="app.js"></script>
   </body>
 </html>
