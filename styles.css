@@ -349,12 +349,12 @@ input[type=checkbox]:checked::before {
 }
 
 .weak {
-  --bar-color: var(--orange-500);
+  --bar-color: var(--orange-400);
   background-color: var(--bar-color);
 }
 
 .medium {
-  --bar-color: var(--yellow-500);
+  --bar-color: var(--yellow-300);
   background-color: var(--bar-color);
 }
 
