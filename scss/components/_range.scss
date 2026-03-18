@@ -33,7 +33,15 @@ input[id='char-count'] {
   height: 0.5rem;
   width: 100%;
 
-  &::-webkit-slider-runnable-track,
+  &::-webkit-slider-runnable-track {
+    background: linear-gradient(
+      to right,
+      var(--green-200) var(--progress),
+      var(--grey-850) var(--progress)
+    );
+    height: 0.5rem;
+  }
+
   &::-moz-range-track {
     background: linear-gradient(
       to right,

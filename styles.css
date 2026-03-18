@@ -334,33 +334,34 @@ input[type=checkbox]:checked::before {
   gap: var(--spacing-100);
   align-items: center;
 }
-
-.bar {
+.bar-wrapper .bar {
   --bar-color: var(--grey-200);
   background-color: transparent;
   border: 0.125rem solid var(--bar-color);
   height: 1.75rem;
   width: 0.625rem;
 }
-
-.too-weak {
+.bar-wrapper:has(.too-weak) .bar {
   --bar-color: var(--red-500);
   background-color: var(--bar-color);
 }
-
-.weak {
+.bar-wrapper:has(.weak) .bar {
   --bar-color: var(--orange-400);
   background-color: var(--bar-color);
 }
-
-.medium {
+.bar-wrapper:has(.medium) .bar {
   --bar-color: var(--yellow-300);
   background-color: var(--bar-color);
 }
-
-.strong {
+.bar-wrapper:has(.strong) .bar {
   --bar-color: var(--green-200);
   background-color: var(--bar-color);
+}
+.bar-wrapper .too-weak ~ .bar,
+.bar-wrapper .weak ~ .bar,
+.bar-wrapper .medium ~ .bar {
+  --bar-color: var(--grey-200);
+  background-color: transparent;
 }
 
 .btn--submit {
@@ -427,7 +428,11 @@ input[id=char-count] {
   height: 0.5rem;
   width: 100%;
 }
-input[id=char-count]::-webkit-slider-runnable-track, input[id=char-count]::-moz-range-track {
+input[id=char-count]::-webkit-slider-runnable-track {
+  background: linear-gradient(to right, var(--green-200) var(--progress), var(--grey-850) var(--progress));
+  height: 0.5rem;
+}
+input[id=char-count]::-moz-range-track {
   background: linear-gradient(to right, var(--green-200) var(--progress), var(--grey-850) var(--progress));
   height: 0.5rem;
 }

@@ -72,22 +72,32 @@ const errorMessages = {
   length: "Character length can't be zero",
   noCheckboxValues: 'Check some character types',
 };
+const ratings = [
+  // Strength Rating, Strength CSS Class
+  ['too weak!', 'too-weak'],
+  ['weak', 'weak'],
+  ['medium', 'medium'],
+  ['strong', 'strong'],
+];
 const ariaLiveRegion = document.getElementById('live-region');
 
 // Range Setup
 function initializeRange() {
   const defaultLength = 0;
+
   range.value = defaultLength;
   updateRange();
 }
 
-// Update Character Length and Range Increment
+// Update Range Track and Displayed Value
 function updateRange() {
   const charCount = form.querySelector('[data-js="char-count"]');
   const trackIncrement =
-    ((range.value - range.min) / (range.max - range.min)) * 100 || 0;
+    ((Number(range.value) - Number(range.min)) /
+      (Number(range.max) - Number(range.min))) *
+      100 || 0;
 
-  charCount.textContent = range.value;
+  charCount.textContent = Number(range.value);
   range.style.setProperty('--progress', `${trackIncrement}%`);
 }
 
@@ -105,7 +115,6 @@ function generatePassword(
     ...(hasNumbers ? numbers : []),
     ...(hasSymbols ? symbols : []),
   ];
-
   let password = '';
 
   if (availableCharacters.length === 0) return '';
@@ -120,21 +129,64 @@ function generatePassword(
 }
 
 function updatePassword() {
-  const length = range.value;
+  const length = Number(range.value);
   const checkboxValues = [...checkBoxes].map(
     (checkbox) => checkbox.checked,
   );
   let password = generatePassword(length, ...checkboxValues);
+
+  // Get number of character types selected for strength rating
+  addStrengthRating(checkboxValues.filter(Boolean).length);
   passwordInput.value = password;
 }
 
 // Strength Meter Setup
+function addStrengthRating(checkedOptions) {
+  const strengthText = form.querySelector('.js-strength-rating');
+  const strengthBars = form.querySelectorAll('.bar');
+  const strengthRating = {
+    // Rating based on number of character types selected, unless noted below
+    1: ratings[0],
+    2: ratings[1],
+    3: ratings[2],
+    4: ratings[3],
+  };
+  let strengthLevel;
+
+  // If password is less than 8 characters, strength is too weak
+  if (Number(range.value) < 8) {
+    strengthLevel = 1;
+  } else if (Number(range.value) > 16 && checkedOptions >= 2) {
+    // If password is greater than 16 characters and has at least 2 character types, strength is strong
+    strengthLevel = 4;
+  } else {
+    strengthLevel = checkedOptions;
+  }
+
+  // Clear previous strength rating
+  strengthBars.forEach((bar) =>
+    bar.classList.remove(...ratings.map((rating) => rating[1])),
+  );
+  strengthText.textContent = '';
+
+  // Add new strength rating
+  const strengthBar = document.querySelector(
+    `[data-strength=${strengthRating[strengthLevel][1]}]`,
+  );
+  strengthBar.classList.add(strengthRating[strengthLevel][1]);
+  strengthText.textContent = strengthRating[strengthLevel][0];
+
+  return strengthLevel;
+}
 
 // Copy to Clipboard Setup
 async function copyToClipboard() {
   try {
     await navigator.clipboard.writeText(passwordInput.value);
     copyMessage.classList.remove('hidden');
+
+    // Update live region for screen readers
+    ariaLiveRegion.textContent = 'Password copied to clipboard';
   } catch (err) {
     console.error('Failed to copy password: ', err);
   }
@@ -142,45 +194,64 @@ async function copyToClipboard() {
 
 // Event Listeners
 range.addEventListener('input', updateRange);
+copyButton.addEventListener('click', copyToClipboard);
+
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   const error = form.querySelector('.error');
 
+  // Validate form inputs
   if (range.value < 1) {
     // Show error message
     error.classList.remove('hidden');
     error.textContent = errorMessages.length;
+
     // Update live region for screen readers
     ariaLiveRegion.textContent = `Error: ${errorMessages.length}`;
+
     // Send focus to range input
     range.focus();
   } else if (![...checkBoxes].some((checkbox) => checkbox.checked)) {
     // Show error message
     error.classList.remove('hidden');
     error.textContent = errorMessages.noCheckboxValues;
+
     // Update live region for screen readers
     ariaLiveRegion.textContent = `Error: ${errorMessages.noCheckboxValues}`;
+
     // Send focus to first checkbox
     checkBoxes[0].focus();
   } else {
     // Remove error message
     error.classList.add('hidden');
     error.textContent = '';
+
     // Generate and display password
     updatePassword();
-    ariaLiveRegion.textContent = `Your password is: ${passwordInput.value}`;
+
+    // Update live region for screen readers
+    const currentStrengthLevel = form.querySelector(
+      '.js-strength-rating',
+    ).textContent;
+    ariaLiveRegion.textContent = `
+      Your password is: ${passwordInput.value}.
+      Strength: ${currentStrengthLevel}.
+    `;
+
     // Enable copy button and send focus to it
     copyButton.removeAttribute('disabled');
     copyButton.focus();
   }
 });
-copyButton.addEventListener('click', copyToClipboard);
 
+// Reset form on page refresh
 window.onload = () => {
   // Disable copy button on load
   copyButton.setAttribute('disabled', true);
+
   // Clear form inputs on load
   form.reset();
+
   // Reset range to zero and update display
   initializeRange();
 };

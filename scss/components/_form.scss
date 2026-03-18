@@ -205,34 +205,41 @@ input[type='checkbox'] {
   display: inline-flex;
   gap: var(--spacing-100);
   align-items: center;
-}
 
-.bar {
-  --bar-color: var(--grey-200);
-  background-color: transparent;
-  border: 0.125rem solid var(--bar-color);
-  height: 1.75rem;
-  width: 0.625rem;
-}
+  .bar {
+    --bar-color: var(--grey-200);
+    background-color: transparent;
+    border: 0.125rem solid var(--bar-color);
+    height: 1.75rem;
+    width: 0.625rem;
+  }
 
-.too-weak {
-  --bar-color: var(--red-500);
-  background-color: var(--bar-color);
-}
+  &:has(.too-weak) .bar {
+    --bar-color: var(--red-500);
+    background-color: var(--bar-color);
+  }
 
-.weak {
-  --bar-color: var(--orange-400);
-  background-color: var(--bar-color);
-}
+  &:has(.weak) .bar {
+    --bar-color: var(--orange-400);
+    background-color: var(--bar-color);
+  }
 
-.medium {
-  --bar-color: var(--yellow-300);
-  background-color: var(--bar-color);
-}
+  &:has(.medium) .bar {
+    --bar-color: var(--yellow-300);
+    background-color: var(--bar-color);
+  }
 
-.strong {
-  --bar-color: var(--green-200);
-  background-color: var(--bar-color);
+  &:has(.strong) .bar {
+    --bar-color: var(--green-200);
+    background-color: var(--bar-color);
+  }
+
+  .too-weak ~ .bar,
+  .weak ~ .bar,
+  .medium ~ .bar {
+    --bar-color: var(--grey-200);
+    background-color: transparent;
+  }
 }
 
 .btn--submit {
