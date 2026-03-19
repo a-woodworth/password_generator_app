@@ -39,7 +39,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Solution]()
+- Solution URL: [Solution](https://www.frontendmentor.io/solutions/password-generator-app-uN_JOQbHBh)
 - Live Site URL: [Live Site](https://a-woodworth.github.io/password_generator_app)
 
 ### Built with
