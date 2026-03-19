@@ -186,7 +186,13 @@ async function copyToClipboard() {
     copyMessage.classList.remove('hidden');
 
     // Update live region for screen readers
-    ariaLiveRegion.textContent = 'Password copied to clipboard';
+    ariaLiveRegion.textContent = 'Password copied';
+
+    // Clear copy success message after 5 seconds
+    setTimeout(() => {
+      copyMessage.classList.add('hidden');
+      ariaLiveRegion.textContent = '';
+    }, 5000);
   } catch (err) {
     console.error('Failed to copy password: ', err);
   }
