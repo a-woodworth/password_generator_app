@@ -45,7 +45,7 @@
             <button
               class="btn--copy"
               type="button"
-              aria-label="copy"
+              aria-label="copy password"
               disabled
             >
               <span class="js-success hidden">Copied</span>
@@ -70,7 +70,12 @@
           <div class="length-group">
             <div class="length-wrapper">
               <label for="char-count">Character Length</label>
-              <span class="count" data-js="char-count">0</span>
+              <span
+                id="char-count-value"
+                class="count"
+                data-js="char-count"
+                >0</span
+              >
             </div>
             <input
               id="char-count"
@@ -80,6 +85,7 @@
               max="20"
               value="0"
               step="1"
+              aria-describedby="char-count-value"
             />
           </div>
           <fieldset class="checkboxes">
