@@ -109,7 +109,7 @@ function generatePassword(
   hasNumbers,
   hasSymbols,
 ) {
-  let availableCharacters = [
+  const availableCharacters = [
     ...(hasUppercase ? uppercaseLetters : []),
     ...(hasLowercase ? lowercaseLetters : []),
     ...(hasNumbers ? numbers : []),
@@ -245,7 +245,7 @@ form.addEventListener('submit', (e) => {
     `;
 
     // Enable copy button and send focus to it
-    copyButton.removeAttribute('disabled');
+    copyButton.disabled = false;
     copyButton.focus();
   }
 });
@@ -253,7 +253,7 @@ form.addEventListener('submit', (e) => {
 // Reset form on page refresh
 window.onload = () => {
   // Disable copy button on load
-  copyButton.setAttribute('disabled', true);
+  copyButton.disabled = true;
 
   // Clear form inputs on load
   form.reset();

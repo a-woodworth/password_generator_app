@@ -98,6 +98,7 @@ input[type='checkbox'] {
   cursor: pointer;
   height: 1.25rem;
   margin: 0;
+  position: relative;
   transition: all 0.3s ease;
   width: 1.25rem;
 
@@ -108,12 +109,14 @@ input[type='checkbox'] {
   &::before {
     content: url(assets/images/icon-check.svg);
     position: absolute;
-    scale: 0;
-    transform: translate(0.0625rem, -0.0625rem);
-    transition: scale 200ms ease-in-out;
+    top: -0.0625rem;
+    left: 0.0625rem;
+    transform-origin: center;
+    transform: scale(0);
+    transition: transform 200ms ease-in-out;
 
     @media (width > 33.75rem) {
-      transform: translate(0.0625rem, -0.1875rem);
+      top: -0.1875rem;
     }
   }
 
@@ -123,7 +126,7 @@ input[type='checkbox'] {
   }
 
   &:checked::before {
-    scale: 1;
+    transform: scale(1);
   }
 }
 
