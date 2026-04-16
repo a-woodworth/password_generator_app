@@ -47,6 +47,9 @@ form {
       font: var(--text-1);
     }
   }
+  @media (width > 33.75rem) {
+    margin-block-end: var(--spacing-300);
+  }
 }
 
 .btn--copy {

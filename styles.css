@@ -109,6 +109,7 @@ h1 {
 @media (width > 33.75rem) {
   h1 {
     font: var(--text-2);
+    margin-block-end: var(--spacing-400);
   }
 }
 
@@ -176,6 +177,11 @@ form {
 @media (width > 33.75rem) {
   .password-group .field__input {
     font: var(--text-1);
+  }
+}
+@media (width > 33.75rem) {
+  .password-group {
+    margin-block-end: var(--spacing-300);
   }
 }
 
